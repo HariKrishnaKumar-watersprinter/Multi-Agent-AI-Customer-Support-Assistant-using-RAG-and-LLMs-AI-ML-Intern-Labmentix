@@ -28,7 +28,7 @@ langchain-community
 faiss-cpu
 langchain-huggingface
 zhipuai
-langchain-pinecone>=0.1.3
+langchain-pinecone
 pinecone-client>=5.0.0
 
 # --- Embeddings & Vector Database ---
