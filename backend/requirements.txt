@@ -25,7 +25,6 @@ bcrypt
 # --- AI & LLM Integration ---
 langchain
 langchain-community
-faiss-cpu
 langchain-huggingface
 zhipuai
 pinecone-client>=5.0.0
