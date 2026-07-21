@@ -3,7 +3,7 @@ import pathlib
 sys.path.append(str(pathlib.Path(__file__).resolve().parent.parent))
 from embeddings.embedder import get_embeddings
 import os
-from langchain_pinecone import PineconeVectorStore
+from langchain_community.vectorstores import Pinecone as PineconeVectorStore
 from pinecone import Pinecone, ServerlessSpec
 
 def pinecone_ingest():
