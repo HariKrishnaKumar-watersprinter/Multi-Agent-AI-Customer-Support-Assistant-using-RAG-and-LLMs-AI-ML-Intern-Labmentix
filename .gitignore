@@ -216,3 +216,35 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# ==========================================
+# 1. ENVIRONMENT VARIABLES (SECURITY)
+# Never upload your API keys or database passwords!
+# ==========================================
+.env
+.env.local
+backend/.env
+frontend/.env.local
+# ==========================================
+# 1. ENVIRONMENT VARIABLES (SECURITY)
+# Never upload your API keys or database passwords!
+# ==========================================
+.env
+.env.local
+backend/.env
+frontend/.env.local
+# ==========================================
+# 5. OPERATING SYSTEM FILES
+# Hidden system files specific to Windows/Mac
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# 6. IDE SETTINGS (Optional but recommended)
+# VS Code or PyCharm personal settings
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
