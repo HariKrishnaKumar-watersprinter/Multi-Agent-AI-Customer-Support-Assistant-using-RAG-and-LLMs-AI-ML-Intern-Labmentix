@@ -15,7 +15,7 @@ declare global {
   }
 }
 export default function ChatWindow({ messages, input, loading, chatEndRef, setInput, sendMessage, createNewSession, regenerateResponse,activeSession }) {
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const textareaRef = seRef<HTMLTextAreaElement | null>(null);
   
   const recognitionRef = useRef<any>(null);
   
