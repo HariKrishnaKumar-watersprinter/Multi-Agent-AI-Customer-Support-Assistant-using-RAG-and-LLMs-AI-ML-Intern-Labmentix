@@ -1,59 +1,52 @@
-"use client";
 import { useState } from "react";
-import Sidebar from "./Sidebar";
-import ChatWindow from "./ChatWindow";
+import Sidebar from "../components/Sidebar";
+import ChatWindow from "../components/ChatWindow";
 
 export default function MainPage({ chatState, authState }) {
-  const {
-    sessions,
-    activeSession,
-    messages,
-    input,
-    loading,
-    chatEndRef,
-    setInput,
-    sendMessage,
-    createNewSession,
-    loadSession,
-    onDeleteSession,
-    onClearHistory,
-    collapsed,
-    toggleSidebar,
-    regenerateResponse
-  } = chatState;
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const toggleSidebar = () => setSidebarCollapsed((prev) => !prev);
 
-  const { logout, username } = authState;
+  const sidebarWidth = sidebarCollapsed ? 64 : 260;
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#0F1719]">
-      {/* Sidebar */}
-      <div className={`border-r transition-all duration-300 ${collapsed ? 'w-16' : 'w-80'}`} 
-           style={{ borderColor: '#2A3A3A', background: '#141E20' }}>
-        <Sidebar 
-          sessions={sessions}
-          activeSession={activeSession}
-          loadSession={loadSession}
-          logout={logout}
-          username={username}
-          collapsed={collapsed}
+    <div className="flex h-screen w-screen overflow-hidden" style={{ background: 'var(--bg)' }}>
+      {/* Only width/min-width are animated here — a pure left-right resize.
+          ChatWindow is flex-1 so it reflows into the freed space automatically. */}
+      <div
+        style={{
+          width: `${sidebarWidth}px`,
+          minWidth: `${sidebarWidth}px`,
+          flexShrink: 0,
+          borderRight: '1px solid var(--border)',
+          background: 'var(--surface)',
+          transition: 'width 0.2s ease, min-width 0.2s ease',
+          overflow: 'hidden',
+        }}
+      >
+        <Sidebar
+          sessions={chatState.sessions}
+          activeSession={chatState.activeSession}
+          loadSession={chatState.loadSession}
+          logout={authState.logout}
+          username={authState.username}
+          collapsed={sidebarCollapsed}
           toggleSidebar={toggleSidebar}
-          onDeleteSession={onDeleteSession}
-          onClearHistory={onClearHistory}
+          onDeleteSession={chatState.onDeleteSession}
+          onClearHistory={chatState.onClearHistory}
         />
       </div>
 
-      {/* Chat Area */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <ChatWindow 
-          messages={messages}
-          input={input}
-          loading={loading}
-          chatEndRef={chatEndRef}
-          setInput={setInput}
-          sendMessage={sendMessage}
-          createNewSession={createNewSession}
-          regenerateResponse={regenerateResponse}
-          activeSession={activeSession}
+      <div className="flex-1 min-w-0 flex flex-col">
+        <ChatWindow
+          messages={chatState.messages}
+          input={chatState.input}
+          loading={chatState.loading}
+          chatEndRef={chatState.chatEndRef}
+          setInput={chatState.setInput}
+          sendMessage={chatState.sendMessage}
+          createNewSession={chatState.createNewSession}
+          regenerateResponse={chatState.regenerateResponse}
+          activeSession={chatState.activeSession}
         />
       </div>
     </div>
