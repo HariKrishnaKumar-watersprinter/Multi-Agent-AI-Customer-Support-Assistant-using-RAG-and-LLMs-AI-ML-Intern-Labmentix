@@ -27,8 +27,9 @@ langchain
 langchain-community
 langchain-huggingface
 zhipuai
+langchain-pinecon
 pinecone-client>=5.0.0
-
+langchain-google-genai
 # --- Embeddings & Vector Database ---
 sentence-transformers
 
