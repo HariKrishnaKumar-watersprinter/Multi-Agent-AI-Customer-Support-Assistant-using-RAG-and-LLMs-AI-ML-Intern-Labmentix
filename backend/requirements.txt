@@ -29,9 +29,8 @@ langchain-huggingface
 zhipuai
 langchain-pinecon
 pinecone-client>=5.0.0
-langchain-google-genai
 # --- Embeddings & Vector Database ---
-sentence-transformers
+langchain-google-genai
 
 # --- Document Processing ---
 pypdf
