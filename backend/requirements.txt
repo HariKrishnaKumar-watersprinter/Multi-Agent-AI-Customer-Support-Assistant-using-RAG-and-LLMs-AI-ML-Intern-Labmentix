@@ -1,0 +1,38 @@
+# ==========================================
+# Web Framework & API
+# ==========================================
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+
+# ==========================================
+# Environment Variables
+# ==========================================
+python-dotenv
+
+# ==========================================
+# Database (MongoDB)
+# ==========================================
+pymongo
+
+# ==========================================
+# Authentication & Security
+# ==========================================
+passlib[bcrypt]
+python-jose[cryptography]
+bcrypt
+# --- AI & LLM Integration ---
+langchain
+langchain-community
+faiss-cpu
+langchain-huggingface
+zhipuai
+langchain-pinecone
+pinecone-client
+
+# --- Embeddings & Vector Database ---
+langchain-google-genai
+
+# --- Document Processing ---
+pypdf
