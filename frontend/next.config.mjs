@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true,   // This disables sharp completely
+    unoptimized: true,
   },
   reactStrictMode: true,
-  // Force serverless for Vercel
   output: 'standalone',
+  experimental: {
+    optimizePackageImports: ['react-icons'],
+  },
 };
 
 export default nextConfig;
