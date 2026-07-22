@@ -1,6 +1,6 @@
 "use client";
 import AuthForm from "../components/AuthForm";
-import MainPage from "../components/MainPage";   // Correct relative path
+import MainPage from "../pages/MainPage";
 import { useAuth } from "../hooks/useAuth";
 import { useChat } from "../hooks/useChat";
 
